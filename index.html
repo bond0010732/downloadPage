@@ -12,10 +12,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        text-align: center;
         flex-direction: column;
         padding: 20px;
+        min-height: 100vh;
+        text-align: center;
     }
 
     .header {
@@ -23,8 +23,12 @@
     }
 
     .logo {
-        width: 80px;
+        font-size: 40px;
+        font-weight: 800;
+        color: #111;
         margin-bottom: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
     }
 
     .title {
@@ -43,25 +47,53 @@
 
     .hero-container {
         display: flex;
+        flex-direction: column; /* stack vertically */
         align-items: center;
         justify-content: center;
-        gap: 30px;
+        gap: 20px;
         padding: 20px;
-        flex-wrap: nowrap;
-        transform-origin: center;
     }
 
-    /* AUTO SCALE FOR SMALL SCREENS */
-    @media (max-width: 600px) {
-        .hero-container {
-            transform: scale(0.78);
-        }
+    .phone {
+        width: 260px;
+        height: 520px;
+        border-radius: 40px;
+        background: #000;
+        padding: 12px;
+        position: relative;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
     }
 
-    @media (max-width: 420px) {
-        .hero-container {
-            transform: scale(0.68);
-        }
+    .phone-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 32px;
+        overflow: hidden;
+    }
+
+    .phone-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .speaker {
+        width: 90px;
+        height: 10px;
+        background: #111;
+        border-radius: 10px;
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .buttons-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap; /* wrap on small screens */
+        justify-content: center;
+        margin-top: 20px;
     }
 
     .download-btn {
@@ -91,86 +123,52 @@
         box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
 
-    .logo {
-    font-size: 40px;
-    font-weight: 800;
-    color: #111; /* Dark text */
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-
-    /* iPhone Mockup */
-    .phone {
-        width: 260px;
-        height: 520px;
-        border-radius: 40px;
-        background: #000;
-        padding: 12px;
-        position: relative;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-    }
-
-    .phone-inner {
-        width: 100%;
-        height: 100%;
-        border-radius: 32px;
-        overflow: hidden;
-    }
-
-    .phone-inner img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* Speaker notch */
-    .speaker {
-        width: 90px;
-        height: 10px;
-        background: #111;
-        border-radius: 10px;
-        position: absolute;
-        top: 12px;
-        left: 50%;
-        transform: translateX(-50%);
+    @media (max-width: 400px) {
+        .download-btn {
+            flex: 1 1 120px; /* allow buttons to shrink on small screens */
+            justify-content: center;
+        }
+        .phone {
+            width: 200px;
+            height: 400px;
+        }
     }
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
 <div class="header">
-<!-- LOGO TEXT -->
-<div class="logo">betxcircle</div>
+    <div class="logo">betxcircle</div>
     <div class="title">Experience the Future of Mobile Play</div>
     <div class="subtitle">Download the app and enjoy a fast, beautiful and seamless experience on any device.</div>
 </div>
 
-<!-- HERO WITH BUTTONS AND PHONE MOCKUP -->
+<!-- HERO PHONE MOCKUP -->
 <div class="hero-container">
-
-    <!-- ANDROID BUTTON -->
- <!-- ANDROID BUTTON -->
-<a id="androidBtn" class="download-btn" href="#">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="">
-    Android
-</a>
-
-    <!-- iPHONE MOCKUP -->
+    <!-- <div class="phone">
+        <div class="speaker"></div>
         <div class="phone-inner">
-           <img src="/screenshot.png" alt="App Screenshot">
+            <img src="/screenshot.png" alt="App Screenshot">
         </div>
-    
+    </div> -->
+     <img class="screenshot" src="/screenshot.png" alt="App Screenshot">
 
-    <!-- APP STORE BUTTON -->
-    <a class="download-btn" href="https://apps.apple.com/ng/app/betxcircle/id6751717415">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="">
-        App Store
-    </a>
 
+    <!-- DOWNLOAD BUTTONS UNDER PHONE -->
+    <div class="buttons-container">
+        <!-- ANDROID BUTTON -->
+        <a id="androidBtn" class="download-btn" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="">
+            Android
+        </a>
+
+        <!-- APP STORE BUTTON -->
+        <a class="download-btn" href="https://apps.apple.com/ng/app/betxcircle/id6751717415">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="">
+            App Store
+        </a>
+    </div>
 </div>
 
 <script>
@@ -192,4 +190,3 @@
 
 </body>
 </html>
-
