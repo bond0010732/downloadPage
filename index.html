@@ -1,155 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
+
+     <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>App Showcase</title>
 <style>
-    body {
-        margin: 0;
-        font-family: 'Inter', sans-serif;
-        background: #f5f5f7;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 20px;
-        min-height: 100vh;
-        text-align: center;
-    }
-
-    .header {
-        margin-bottom: 30px;
-    }
-
-    .logo {
-        font-size: 40px;
-        font-weight: 800;
-        color: #111;
-        margin-bottom: 10px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-
-    .title {
-        font-size: 32px;
-        font-weight: 800;
-        color: #111;
-        margin: 10px 0 5px;
-    }
-
-    .subtitle {
-        font-size: 16px;
-        color: #555;
-        max-width: 400px;
-        margin: 0 auto 25px;
-    }
-
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f5f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+}
+.header {
+    margin-bottom: 30px;
+}
+.logo {
+    width: 80px;
+    margin-bottom: 10px;
+}
+.title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #111;
+    margin: 10px 0 5px;
+}
+.subtitle {
+    font-size: 16px;
+    color: #555;
+    max-width: 400px;
+    margin: 0 auto 25px;
+}
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    flex-wrap: nowrap;
+    transform-origin: center;
+}
+/* AUTO SCALE FOR SMALL SCREENS */
+@media (max-width: 600px) {
     .hero-container {
-        display: flex;
-        flex-direction: column; /* stack vertically */
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
+        transform: scale(0.78);
     }
-
-    .screenshot {
-        width: 260px;
-        border-radius: 32px;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-        object-fit: cover;
+}
+@media (max-width: 420px) {
+    .hero-container {
+        transform: scale(0.68);
     }
-
-    .buttons-container {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap; /* wrap on small screens */
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    .download-btn {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 14px 20px;
-        border-radius: 14px;
-        border: 1px solid #ccc;
-        background: white;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        transition: 0.2s ease-in-out;
-        white-space: nowrap;
-        text-decoration: none;
-        color: black;
-    }
-
-    .download-btn img {
-        width: 26px;
-        height: 26px;
-    }
-
-    .download-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-
-    @media (max-width: 400px) {
-        .download-btn {
-            flex: 1 1 120px;
-            justify-content: center;
-        }
-        .screenshot {
-            width: 200px;
-        }
-    }
+}
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: 1px solid #ccc;
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: 0.2s ease-in-out;
+    white-space: nowrap;
+    text-decoration: none;
+    color: black;
+}
+.download-btn img {
+    width: 26px;
+    height: 26px;
+}
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.logo {
+    font-size: 40px;
+    font-weight: 800;
+    color: #111; /* Dark text */
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+/* iPhone Mockup */
+.phone {
+    width: 260px;
+    height: 520px;
+    border-radius: 40px;
+    background: #000;
+    padding: 12px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+.phone-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+    overflow: hidden;
+}
+.phone-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Speaker notch */
+.speaker {
+    width: 90px;
+    height: 10px;
+    background: #111;
+    border-radius: 10px;
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <div class="header">
+    <!-- LOGO TEXT -->
     <div class="logo">betxcircle</div>
     <div class="title">Experience the Future of Mobile Play</div>
     <div class="subtitle">Download the app and enjoy a fast, beautiful and seamless experience on any device.</div>
 </div>
 
-<!-- HERO WITH SCREENSHOT -->
+<!-- HERO WITH BUTTONS AND PHONE MOCKUP -->
 <div class="hero-container">
-    <img class="screenshot" src="/screenshot.png" alt="App Screenshot">
 
-    <!-- DOWNLOAD BUTTONS UNDER IMAGE -->
-    <div class="buttons-container">
-        <!-- ANDROID BUTTON -->
-        <a id="androidBtn" class="download-btn" href="#">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="">
-            Android
-        </a>
+    <!-- ANDROID BUTTON -->
+    <a id="androidBtn" class="download-btn" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="">
+        Android
+    </a>
 
-        <!-- APP STORE BUTTON -->
-        <a class="download-btn" href="https://apps.apple.com/ng/app/betxcircle/id6751717415">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="">
-            App Store
-        </a>
+    <!-- iPHONE MOCKUP -->
+    <div class="phone-inner">
+        <img src="/screenshot.png" alt="App Screenshot">
     </div>
+
+    <!-- APP STORE BUTTON -->
+    <a class="download-btn" href="https://apps.apple.com/ng/app/betxcircle/id6751717415">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="">
+        App Store
+    </a>
+
 </div>
 
 <script>
-    const androidBtn = document.getElementById('androidBtn');
+const androidBtn = document.getElementById('androidBtn');
 
-    androidBtn.addEventListener('click', function(e) {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+androidBtn.addEventListener('click', function(e) {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-        // Check if Android
-        if (/android/i.test(userAgent)) {
-            window.location.href = 'https://github.com/bond0010732/betxcircleweb/releases/download/v1.0.0/betxcircleAndroidapp.apk';
-        } else {
-            e.preventDefault();
-            alert("This app is only available for Android devices.");
-        }
-    });
+    // Check if Android
+    if (/android/i.test(userAgent)) {
+        // Redirect to APK download
+        window.location.href = 'https://github.com/bond0010732/betxcircleweb/releases/download/v1.0.0/betxcircleAndroidapp.apk';
+    } else {
+        e.preventDefault(); // Prevent link
+        alert("This app is only available for Android devices.");
+    }
+});
 </script>
 
 </body>
